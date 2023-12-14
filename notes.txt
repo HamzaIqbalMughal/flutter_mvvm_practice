@@ -1,0 +1,22 @@
+=> Packages Used in this Project
+      fluttertoast: ^8.2.4
+      http: ^1.1.2
+      another_flushbar: ^1.12.30
+      provider: ^6.1.1
+
+=> Created Following directories in lib directory
+    lib/data
+    lib/res
+    lib/repository
+    lib/utils
+    lib/view
+    lib/view_model
+
+=> Created app Exceptions in data directory
+
+=> Created response/status.dart , inside it we created enum
+   Created response/api_response.dart ,
+        - created an API Class in
+
+=>
+
