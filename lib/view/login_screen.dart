@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm_practice/utils/utils.dart';
 
 import '../utils/routes/routes_name.dart';
 
@@ -19,7 +20,10 @@ class _LogInScreenState extends State<LogInScreen> {
         children: [
           InkWell(
             onTap: (){
-              Navigator.pushNamed(context, 'hello');
+              // Utils.flushBarErrorMessage('No Internet Connection', context);
+              Utils.snakeBar('No Internet', context);
+              // Utils.toastMessage('Hello...');
+              // Navigator.pushNamed(context, 'hello');
             },
             child: Text('Click here'),
           )

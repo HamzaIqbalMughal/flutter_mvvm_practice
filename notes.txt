@@ -18,5 +18,11 @@
    Created response/api_response.dart ,
         - created an API Class in
 
+=> Added utils/routes/routes & routes_name
+
+=> Added utils/utils.dart
+    - implement toastMessage() in utils class
+    - implemented flushBarErrorMessage() in utils class
+    - iimplemented snakebar() in utils class
 =>
 
