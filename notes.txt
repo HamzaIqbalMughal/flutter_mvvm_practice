@@ -23,6 +23,9 @@
 => Added utils/utils.dart
     - implement toastMessage() in utils class
     - implemented flushBarErrorMessage() in utils class
-    - iimplemented snakebar() in utils class
-=>
+    - implemented snakebar() in utils class
+
+=> Designing Views
+    - Added login_view , on TextFromFields added FocusNodes, also implemented Method fieldFocusChange() in utils; for shifting focus.
+    -
 
