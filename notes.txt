@@ -27,5 +27,8 @@
 
 => Designing Views
     - Added login_view , on TextFromFields added FocusNodes, also implemented Method fieldFocusChange() in utils; for shifting focus.
-    -
+    - wrapped password TextFormField with ValueListenableBuilder , and implement with valueNotifier
+    - Added res/components/rounde_button.dart and res/colors.dart, and used RoundButton in LogInView
+
+
 
