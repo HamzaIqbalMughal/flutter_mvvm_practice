@@ -28,7 +28,26 @@
 => Designing Views
     - Added login_view , on TextFromFields added FocusNodes, also implemented Method fieldFocusChange() in utils; for shifting focus.
     - wrapped password TextFormField with ValueListenableBuilder , and implement with valueNotifier
-    - Added res/components/rounde_button.dart and res/colors.dart, and used RoundButton in LogInView
+    - Added res/components/round_button.dart and res/colors.dart, and used RoundButton in LogInView
+
+// ----------------------------------------------------------
+=> Created repository/auth_repository class
+    - Created object of BaseApiServices (which is abstract class), and initializing it with NetworkApiService class
+        e.g: BaseApiServices _apiServices = NetworkApiService();
+    -
+
+=> Created view_model/auth_view_model class
+
+
+=> Created res/app_urls class
+    - Added the Urls inside it:
+        code e.g :
+            static var baseUrl = 'https://reqres.in';
+            static var loginApiEndPoint = '$baseUrl+/api/login';
+            static var registerApiEndPoint = '$baseUrl+/api/register';
+
+=>
+
 
 
 

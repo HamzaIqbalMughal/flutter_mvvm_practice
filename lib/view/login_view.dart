@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mvvm_practice/utils/utils.dart';
+import 'package:flutter_mvvm_practice/view_model/auth_view_model.dart';
 
 import '../res/components/round_botton.dart';
 import '../utils/routes/routes_name.dart';
+import 'package:provider/provider.dart';
 
 class LogInView extends StatefulWidget {
   const LogInView({super.key});
@@ -34,6 +36,8 @@ class _LogInViewState extends State<LogInView> {
 
   @override
   Widget build(BuildContext context) {
+
+    final authViewModel = Provider.of<AuthViewModel>(context);
 
     final height = MediaQuery.of(context).size.height * 1;
 
@@ -98,7 +102,11 @@ class _LogInViewState extends State<LogInView> {
                   }else if(_passwordController.text.length < 6){
                     Utils.flushBarErrorMessage('Please Enter 6 digit pass', context);
                   }else{
-                    print('api hit');
+                    Map data = {
+                      'email': _emailController.text.toString(),
+                      'password': _passwordController.text.toString(),
+                    };
+                    authViewModel.loginApi(data, context);
                   }
                 }
             ),
