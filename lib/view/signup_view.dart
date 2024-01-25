@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_mvvm_practice/utils/utils.dart';
-import 'package:flutter_mvvm_practice/view_model/auth_view_model.dart';
-
-import '../res/components/round_botton.dart';
-import '../utils/routes/routes_name.dart';
+import 'package:flutter_mvvm_practice/utils/routes/routes_name.dart';
 import 'package:provider/provider.dart';
 
-class LogInView extends StatefulWidget {
-  const LogInView({super.key});
+import '../res/components/round_botton.dart';
+import '../utils/utils.dart';
+import '../view_model/auth_view_model.dart';
+
+class SignUpView extends StatefulWidget {
+  const SignUpView({super.key});
 
   @override
-  State<LogInView> createState() => _LogInViewState();
+  State<SignUpView> createState() => _SignUpViewState();
 }
 
-class _LogInViewState extends State<LogInView> {
+class _SignUpViewState extends State<SignUpView> {
 
   ValueNotifier<bool> _obsecurePass = ValueNotifier(true);
 
@@ -43,7 +42,7 @@ class _LogInViewState extends State<LogInView> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: Text('Sign Up'),
         centerTitle: true,
         // backgroundColor: Colors.blue,
       ),
@@ -82,15 +81,15 @@ class _LogInViewState extends State<LogInView> {
                         onTap: (){
                           _obsecurePass.value = !_obsecurePass.value;
                         },
-                          child: _obsecurePass.value ? Icon(Icons.visibility) : Icon(Icons.visibility_off),
+                        child: _obsecurePass.value ? Icon(Icons.visibility) : Icon(Icons.visibility_off),
                       ),
                     ),
                   );
                 }
             ),
             SizedBox(height: height * .05),
-            RoundButton(title: 'Log In',
-                loading: authViewModel.logInloading,
+            RoundButton(title: 'Sign Up',
+                loading: authViewModel.signUpLoading,
                 onPress: (){
                   if(_emailController.text.isEmpty && _passwordController.text.isEmpty){
                     Utils.flushBarErrorMessage('Please enter Email and Password', context);
@@ -107,16 +106,17 @@ class _LogInViewState extends State<LogInView> {
                       'email': _emailController.text.toString(),
                       'password': _passwordController.text.toString(),
                     };
-                    authViewModel.loginApi(data, context);
+                    authViewModel.signUpApi(data, context);
                   }
                 }
             ),
             SizedBox(height: height * 0.02,),
             InkWell(
-                onTap: (){
-                  Navigator.pushNamed(context, RoutesName.signUp);
-                },
-                child: Text("Don't have an Account? Sign Up")
+              onTap: (){
+                // Navigator.pushNamed(context, RoutesName.login);
+                Navigator.pop(context);
+              },
+              child: Text("Already have an Account? LogIn"),
             ),
 
           ],
@@ -124,4 +124,5 @@ class _LogInViewState extends State<LogInView> {
       ),
     );
   }
+
 }
