@@ -51,9 +51,13 @@
 // --------------------   Managing User Session   ------------------------------------------------
 => Created UserModel in /lib/model/
 
+=> Created SplashView in /lib/view/
+
+=> Created SplashServices in view_model/services/
+    -> In the SplashServices we first getting the userToken, which is being handled by the view_model/user_view_model.dart
+    -> In the SplashServices we also created checkAuthentication() , which is first getting the token provided by user_view_model,
+        and checking the condition whether the token Exits or not, and then Navigating towards LogInView or HomeView
+
 =>
-
-
-
 
 

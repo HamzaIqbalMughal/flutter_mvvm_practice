@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../view_model/services/splash_services.dart';
+
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
 
@@ -9,22 +11,21 @@ class SplashView extends StatefulWidget {
 
 class _SplashViewState extends State<SplashView> {
 
+  SplashServices splashServices = SplashServices();
   @override
   void initState() {
     // TODO: implement initState
-
-
+    super.initState();
+    splashServices.checkAuthentication(context);
   }
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-
-        ],
-      ),
+      body: Center(
+        child: Text('splash screen', style: Theme.of(context).textTheme.headlineLarge,),
+      )
     );
   }
 }
