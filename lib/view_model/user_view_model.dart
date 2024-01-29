@@ -8,7 +8,7 @@ class UserViewModel with ChangeNotifier{
 
     final SharedPreferences sp = await SharedPreferences.getInstance();
     sp.setString('token', user.token.toString());
-    notifyListeners();
+    // notifyListeners();
 
     return true;
   }

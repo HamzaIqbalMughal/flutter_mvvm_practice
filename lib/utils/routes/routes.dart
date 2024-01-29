@@ -12,7 +12,7 @@ class Routes {
       case RoutesName.splash:
         return MaterialPageRoute(builder: (BuildContext context) => SplashView());
       case RoutesName.home:
-        return MaterialPageRoute(builder: (BuildContext context) => HomeView());
+        return MaterialPageRoute(builder: (BuildContext context) => HomeView(user: settings.arguments,));
       case RoutesName.login:
         return MaterialPageRoute(
             builder: (BuildContext context) => LogInView());

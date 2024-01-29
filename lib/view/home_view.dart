@@ -6,7 +6,12 @@ import 'package:flutter_mvvm_practice/view_model/user_view_model.dart';
 import 'package:provider/provider.dart';
 
 class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+
+  // const HomeView({super.key});
+
+  dynamic user;
+
+  HomeView({super.key, this.user});
 
   @override
   State<HomeView> createState() => _HomeViewState();
@@ -20,13 +25,28 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    // userPreference = Provider.of<UserViewModel>(context);
+
+    if(kDebugMode){
+      print(widget.user.toString());
+    }
   }
 
   @override
   Widget build(BuildContext context) {
 
     final userPreference = Provider.of<UserViewModel>(context);
+
+    if(widget.user != null){
+      userPreference.saveUser(widget.user).then((value) {
+        if(value){
+          if(kDebugMode){
+            print("User's Sessions is saved Successfullly");
+          }
+        }
+      }).onError((error, stackTrace) {
+        print(error.toString());
+      });
+    }
 
     // UserModel user = UserModel();
     //
